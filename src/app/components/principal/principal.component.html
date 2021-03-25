@@ -5,7 +5,8 @@
             <a class="dropdown-item" [routerLink]="'ships'">Ships</a>
             <a class="dropdown-item" [routerLink]="'pageOne'">Page One</a>
             <a class="dropdown-item" [routerLink]="'pageTwo'">Page Two</a>
-            <a class="dropdown-item" [routerLink]="''">Login</a>
+            <a class="dropdown-item" [routerLink]="''" *ngIf="!conectado">Login</a>
+            <a class="dropdown-item" [routerLink]="''" *ngIf="conectado" (click)="cerrarSesion()">Cerrar Sesión</a>
         </div>
     </div>
 </nav>

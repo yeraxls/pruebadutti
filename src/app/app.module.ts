@@ -15,18 +15,13 @@ import { LoginRegistroModule } from './modules/login-registro.module';
 @NgModule({
   declarations: [
     AppComponent,
-    //LoginComponent,
-    //RegisterComponent,
     PrincipalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
     PrincipalModule,
     LoginRegistroModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

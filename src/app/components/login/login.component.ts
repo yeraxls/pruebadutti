@@ -24,22 +24,29 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loginForm = this.fb.group({
-      username: [ '', [Validators.required, Validators.minLength(3)]],
-      password: [ '', [Validators.required, Validators.minLength(6)]]
-    })
+    this.especificaValidaciones();
   }
+
+  especificaValidaciones() {
+    this.loginForm = this.fb.group({
+      username: ['', [Validators.required, Validators.minLength(3)]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
+  }
+
+  get esInvalido() {
+    return this.loginForm.invalid;
+  }
+
   loginUser() {
-    if (this.loginForm.invalid) { return }
     // TODO : Falta integrar el servicio para autentificar al usuario
     // JSON simulando usuarios
     var userLogin = this.loginForm.value.username;
-    var filterJson = this.users.filter(function (user) { return user.first_name === userLogin  });
-    if (filterJson.length > 0) {
+    var filterJson = this.users.filter(user => { return user.first_name === userLogin });
+    if (filterJson.length > 0)
       this.router.navigate(['/principal/ships'])
-    } else {
+    else
       this.unregistered = true;
-    }
   }
 }
 
