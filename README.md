@@ -34,5 +34,5 @@ Navigate to `http://localhost:4200/`.
 
 
 # Notas del desarrollador:
-
+tablero usado para gestionar tareas: https://trello.com/b/mLK0sCbv/pruebamassimodutti
 
