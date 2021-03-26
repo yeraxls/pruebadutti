@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { modAppShips } from 'src/app/class/modAppShips';
 declare var $: any;
 
 
@@ -9,7 +10,7 @@ declare var $: any;
 })
 export class ShipsDetailsComponent implements OnInit {
 
-  @Input() dataList: any;
+  @Input() dataList: modAppShips[];
   config: any;
   shipId: string = '';
   url: string = '';
@@ -28,11 +29,11 @@ export class ShipsDetailsComponent implements OnInit {
         totalItems: this.dataList.length
       };
   }
-
+ urlImg = "https://starwars-visualguide.com/assets/img/starships/";
   getStarshipId(url) {
-    this.shipId = url.slice(0, -1)
-    const urlImage = `${this.shipId}.jpg`
-    return urlImage !== "";
+    this.shipId = url.split('/');
+    const urlImage = `${this.urlImg}${this.shipId[this.shipId.length - 2]}.jpg`
+    return urlImage;
   }
 
   pageChanged(event){
