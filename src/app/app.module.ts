@@ -20,7 +20,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
   declarations: [
     AppComponent,
     PrincipalComponent,
-    MenuComponent
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +28,8 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
     PrincipalModule,
     LoginRegistroModule,
     StoreModule.forRoot({
-      ships :miReducer
+      ships :miReducer,
+      planets: miReducer  
     }),
     StoreDevtoolsModule.instrument({
       maxAge : 10

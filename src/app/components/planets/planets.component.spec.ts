@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { PageOneComponent } from './page-one.component';
+import { PlanetsComponent } from './planets.component';
 
 describe('PageOneComponent', () => {
   let component: PageOneComponent;

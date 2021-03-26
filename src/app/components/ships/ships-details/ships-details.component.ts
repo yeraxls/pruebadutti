@@ -17,9 +17,7 @@ export class ShipsDetailsComponent implements OnInit {
   url: string = '';
   // Modal
   details : modAppShipsDialog = {} as modAppShipsDialog;
-  titleDetails: string = '';
-  modelDetails: string = '';
-  starship_class: string = '';
+
 
   constructor() { 
   }
@@ -49,9 +47,6 @@ export class ShipsDetailsComponent implements OnInit {
       modelDetails: details.model,
       starship_class: details.starship_class
       }
-    // this.titleDetails = details.name;
-    // this.modelDetails = details.model;
-    // this.starship_class = details.starship_class
   }
 
 }

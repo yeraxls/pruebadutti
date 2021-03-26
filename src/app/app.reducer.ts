@@ -1,17 +1,27 @@
 import { Action } from "@ngrx/store"
-import * as fromShips  from './actions/ships.action';
+import * as fromGeneral  from './actions/general.action';
+import { modAppPlanets } from "./class/modAppPlanets";
+import { modAppShips } from "./class/modAppShips";
 export interface appState {
-    ships: any[]
+    ships: modAppShips[],
+    planets: modAppPlanets[]
 }
 
 export const initialState = {
-    ships: []
+    ships: [],
+    planets:[]
 }
 
-export function miReducer(state: appState = initialState, action: fromShips.MensajeActions) {
+export function miReducer(state: appState = initialState, action: fromGeneral.MensajeActions) {
     console.log(action);
     switch (action.type) {
-        case fromShips.LOAD:
+        case fromGeneral.LOADSHIPS:
+            return {
+                ...state,
+                ships: action.payload
+            }
+            break;
+            case fromGeneral.LOADPLANETS:
             return {
                 ...state,
                 ships: action.payload
