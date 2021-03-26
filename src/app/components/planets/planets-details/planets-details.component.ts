@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { modAppPlanets } from 'src/app/class/modAppPlanets';
+import { modAppPlanetsDialog } from 'src/app/class/modAppPlanetsDialog';
 import { modAppShipsDialog } from 'src/app/class/modAppShipsDialog';
 declare var $: any;
 
@@ -13,7 +14,7 @@ export class PlanetsDetailsComponent implements OnInit {
   config: any;
   shipId: string = '';
   url: string = '';
-  details : modAppShipsDialog = {} as modAppShipsDialog;
+  details : modAppPlanetsDialog = {urls:[]} as modAppPlanetsDialog;
   constructor() { }
 
   ngOnInit(): void {
@@ -34,13 +35,17 @@ export class PlanetsDetailsComponent implements OnInit {
     this.config.currentPage = event;
   }
 
-  openDetails(details) {
-    //cargar residentes
+  openDetails(details: modAppPlanets) {
     $("#exampleModal").modal('show');
-    this.details = { 
-      titleDetails: details.name,
-     modelDetails: details.model,
-     starship_class: details.starship_class
+    this.details ={ 
+      urls : details.residents,
+      name: details.name
      }
  }
+ urlImgDialog = "https://starwars-visualguide.com/assets/img/characters/";
+ getimgDialog(url) {
+  this.shipId = url.split('/');
+  const urlImage = `${this.urlImgDialog}${this.shipId[this.shipId.length - 2]}.jpg`
+  return urlImage;
+}
 }
