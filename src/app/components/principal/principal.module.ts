@@ -8,11 +8,13 @@ import { ShipsComponent } from '../ships/ships.component';
 import { PageOneComponent } from '../page-one/page-one.component';
 import { PageTwoComponent } from '../page-two/page-two.component';
 import { ShipsDetailsComponent } from '../ships/ships-details/ships-details.component';
+import { ShipsDetailsDialogComponent } from '../ships/ships-details/ships-details-dialog/ships-details-dialog.component';
 
 @NgModule({
   declarations: [
     ShipsComponent,
     ShipsDetailsComponent,
+    ShipsDetailsDialogComponent,
     PageOneComponent,
     PageTwoComponent
   ],

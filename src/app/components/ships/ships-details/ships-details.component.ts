@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { modAppShipsDialog } from 'src/app/class/modAppShipsDialog';
 import { modAppShips } from 'src/app/class/modAppShips';
 declare var $: any;
 
@@ -15,6 +16,7 @@ export class ShipsDetailsComponent implements OnInit {
   shipId: string = '';
   url: string = '';
   // Modal
+  details : modAppShipsDialog = {} as modAppShipsDialog;
   titleDetails: string = '';
   modelDetails: string = '';
   starship_class: string = '';
@@ -39,12 +41,17 @@ export class ShipsDetailsComponent implements OnInit {
   pageChanged(event){
     this.config.currentPage = event;
   }
-
+  
   openDetails(details) {
-    $("#exampleModal").modal('show');
-    this.titleDetails = details.name;
-    this.modelDetails = details.model;
-    this.starship_class = details.starship_class
+     $("#exampleModal").modal('show');
+     this.details = { 
+       titleDetails: details.name,
+      modelDetails: details.model,
+      starship_class: details.starship_class
+      }
+    // this.titleDetails = details.name;
+    // this.modelDetails = details.model;
+    // this.starship_class = details.starship_class
   }
 
 }
