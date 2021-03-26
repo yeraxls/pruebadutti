@@ -11,6 +11,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { LoginRegistroModule } from './modules/login-registro.module';
 import { MenuComponent } from './components/menu/menu.component';
+import { StoreModule } from '@ngrx/store';
+import { miReducer } from './app.Reducer';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 
 @NgModule({
@@ -23,7 +26,13 @@ import { MenuComponent } from './components/menu/menu.component';
     BrowserModule,
     AppRoutingModule,
     PrincipalModule,
-    LoginRegistroModule
+    LoginRegistroModule,
+    StoreModule.forRoot({
+      ships :miReducer
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge : 10
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

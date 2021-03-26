@@ -24,7 +24,7 @@ export class GestionUsuarioService {
     localStorage.setItem("usuario", JSON.stringify(usuario));
   }
   cerrarSesion() {
-    return localStorage.removeItem("usuario");
+    localStorage.removeItem("usuario");
     this.router.navigate(['']);
   }
 
@@ -35,6 +35,5 @@ export class GestionUsuarioService {
       return true;
     }
     return false;
-
   }
 }
