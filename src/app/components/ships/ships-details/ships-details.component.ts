@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { modAppShipsDialog } from 'src/app/class/modAppShipsDialog';
 import { modAppShips } from 'src/app/class/modAppShips';
+import { ShipsService } from 'src/app/services/ships.service';
+import { modAppFilms } from 'src/app/class/modAppFilms';
 declare var $: any;
 
 
@@ -19,7 +21,7 @@ export class ShipsDetailsComponent implements OnInit {
   details : modAppShipsDialog = {} as modAppShipsDialog;
 
 
-  constructor() { 
+  constructor(private shipsService: ShipsService) { 
   }
   
   ngOnInit(): void {
@@ -40,13 +42,22 @@ export class ShipsDetailsComponent implements OnInit {
     this.config.currentPage = event;
   }
   
-  openDetails(details) {
+  
+  _films: modAppFilms[] = [];
+  get films(){
+    return this._films;
+  }
+  openDetails(details:modAppShips) {
+    details.films.forEach(f => this.getFilm(f));
      $("#exampleModal").modal('show');
      this.details = { 
        titleDetails: details.name,
       modelDetails: details.model,
       starship_class: details.starship_class
       }
+  }
+  getFilm(film: string): void {
+    this.shipsService.getFilms(film).subscribe(f => this._films.push(f))
   }
 
 }

@@ -1,5 +1,5 @@
 <pagination-controls (pageChange)="pageChanged($event)" class="text-center"></pagination-controls>
-<div class="ship" *ngFor="let planet of dataList | paginate: config; ; let i = index" (click)="openDetails(planet)">
+<div class="ship" *ngFor="let planet of dataList | paginate: config; let i = index" (click)="openDetails(planet)">
   <div class="panel-heading">
     <h3 class="panel-title">{{planet.name}}</h3>
   </div>
@@ -20,7 +20,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <div *ngFor="let url of details.urls">
+        <pagination-controls (pageChange)="pageChangedImg($event)" class="text-center"></pagination-controls>
+        <div *ngFor="let url of details.urls | paginate: configImg; let j = index">
           <img [src]="getimgDialog(url)" onError="this.src='assets/img/errorImg_x3.svg'" class="imgSize">
         </div>
       </div>

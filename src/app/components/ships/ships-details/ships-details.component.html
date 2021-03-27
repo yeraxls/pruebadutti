@@ -20,7 +20,11 @@
         </div>
         <div class="modal-body">
           <span>Model : {{details.modelDetails}}</span><br>
-          <span>starship_class: {{details.starship_class}}</span>
+          <span>starship_class: {{details.starship_class}}</span><br>
+          <span><b>films:</b></span>
+          <ul>
+            <li *ngFor="let film of films">{{film.title}} - {{film.director}}</li>
+          </ul>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
