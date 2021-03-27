@@ -16,8 +16,9 @@ export class PlanetsComponent implements OnInit {
 
   public dataList: Observable<modAppPlanets[]>;
   constructor(private planetsService: PlanetsService,
-    private store: Store<appState>) {
-    this.dataList = store.select('planets');
+    // private store: Store<appState>
+    ) {
+    // this.dataList = store.select('planets');
   }
 
   listaPlanetas : modAppPlanets[] = [];

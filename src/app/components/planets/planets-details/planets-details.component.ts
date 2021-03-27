@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { modAppPlanets } from 'src/app/class/modAppPlanets';
 import { modAppPlanetsDialog } from 'src/app/class/modAppPlanetsDialog';
-import { modAppShipsDialog } from 'src/app/class/modAppShipsDialog';
 declare var $: any;
 
 @Component({
