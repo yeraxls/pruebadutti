@@ -21,7 +21,14 @@ export class PlanetsComponent implements OnInit {
     // this.dataList = store.select('planets');
   }
 
-  listaPlanetas : modAppPlanets[] = [];
+  _listaPlanetas: modAppPlanets[] = [];
+  get listaPlanetas() {
+    return this._listaPlanetas;
+  }
+   
+  set listaPlanetas(v){
+    Promise.resolve(null).then(() => this._listaPlanetas = v);
+  }
   ngOnInit(): void {
     this.planetsService.getPlanets().subscribe(planets =>{
       this.listaPlanetas = planets.results;
