@@ -24,7 +24,7 @@ export function miReducer(state: appState = initialState, action: fromGeneral.Me
             case fromGeneral.LOADPLANETS:
             return {
                 ...state,
-                ships: action.payload
+                planets: action.payload
             }
             break;
         default:

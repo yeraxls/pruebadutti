@@ -1,4 +1,4 @@
 <div class="container">
-    <planets-details [dataList]="listaPlanetas"></planets-details>
+    <planets-details [dataList]="(dataList | async)?.planets"></planets-details>
 </div>
 
